@@ -1,5 +1,5 @@
 import { getChatGPTUser } from "@/app/chatgpt-auth";
-import { claimBreakfast, completeReading, loadHabits } from "@/db/habits";
+import { claimBreakfast, completeReading, loadHabits, claimLevelTwoReward } from "@/db/habits";
 import { bangkokDay } from "@/lib/habit-rules";
 export const dynamic = "force-dynamic";
 function json(body: unknown, status = 200) {
@@ -24,10 +24,13 @@ export async function POST(request: Request) {
   catch { return json({ error: "Invalid request." }, 400); }
   if (!body || typeof body !== "object" || !("action" in body) || !("day" in body)) return json({ error: "Invalid request." }, 400);
   const { action, day } = body;
-  if (action !== "read" && action !== "claim") return json({ error: "Unknown action." }, 400);
+  if (action !== "read" && action !== "claim" && action !== "claim_level2") return json({ error: "Unknown action." }, 400);
   if (day !== bangkokDay()) return json({ error: "A new day has started in Bangkok. Refresh to begin today's habit." }, 409);
   try {
     if (action === "read") await completeReading(user.userId, day as string);
+    else if (action === "claim_level2") {
+      if (!await claimLevelTwoReward(user.userId)) return json({ error: "Reach level 2 to unlock your big reward." }, 409);
+    }
     else if (!await claimBreakfast(user.userId, day as string)) return json({ error: "Read your 10 pages first to unlock breakfast." }, 409);
     return json(await loadHabits(user.userId));
   } catch { return json({ error: "We couldn't save that yet. Retry safely; you won't receive duplicate XP." }, 503); }

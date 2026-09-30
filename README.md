@@ -6,18 +6,24 @@ A private personal habit game built for Dank. Start as **New, Rich World member*
 
 1. Read 10 pages of any book, then tap **I've read my 10 pages**.
 2. Your good breakfast reward unlocks. Choose a healthy breakfast, a luxurious one, or both.
-3. Tap **Claim breakfast & earn 2 XP** when you claim your reward.
+3. Tap **Claim breakfast & gain 4.00% XP** when you claim your reward.
 
 The habit gauge moves from **0.00% → 50.00% → 100.00%**. XP is awarded after claiming the breakfast reward. The app records your self-reported habit; it does not purchase or deliver breakfast.
 
 ## First chapter
 
 - One completed reading-and-breakfast cycle per Bangkok calendar day.
-- Each cycle earns **2 XP** and completes one of the first **10 levels**.
-- Start working on level 1 at 0 XP. After 10 cycles, the first chapter is 100.00% complete at 20 XP.
-- The current level stops at 10 after the first chapter; daily habits continue earning 2 XP without inventing later-stage rules.
+- Each completed habit adds **4.00% experience** toward the next level at levels 1–10.
+- The level gauge displays **4.00 / 100.00%**, then **8.00 / 100.00%**, and so on.
+- **25 completed habits = 100.00% = one level up**. Start at level 1; habit 25 advances to level 2 with a fresh 0.00 / 100.00% gauge.
+- Ten completed levels require 250 habits (1,000 cumulative XP). After completing level 10, its gauge stays at 100.00% and total XP continues growing; later-stage level rules are not yet defined.
+- Existing claimed habits are automatically counted under the new 4% rule; no history is removed.
 - A new day starts at midnight in **Asia/Bangkok**. XP and history remain saved. Unclaimed previous-day rewards remain in history with 0 XP.
 - Reading and claiming are idempotent: repeated taps, retries, and concurrent tabs cannot award duplicate XP.
+
+## Level 2 big reward
+
+After 25 completed habits, level 2 unlocks a big meal reward: **MK buffet, Korean BBQ, Mookrata, pizza, KFC, or McDonald’s**. Tap **I've enjoyed my big reward** after enjoying your choice. This one-time milestone claim is saved across devices and does not add extra habit XP. It stays unlocked even after moving to later levels. The app records the reward; meals are arranged and paid for personally.
 
 ## Privacy and saved progress
 

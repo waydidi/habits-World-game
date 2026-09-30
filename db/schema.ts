@@ -10,3 +10,9 @@ export const habitDays = sqliteTable("habit_days", {
   primaryKey({ columns: [table.userId, table.day] }),
   check("reward_after_read", sql`${table.rewardAt} IS NULL OR ${table.rewardAt} >= ${table.readAt}`),
 ]);
+
+export const milestoneRewards = sqliteTable("milestone_rewards", {
+  userId: text("user_id").notNull(),
+  milestone: text("milestone").notNull(),
+  claimedAt: text("claimed_at").notNull(),
+}, (table) => [primaryKey({ columns: [table.userId, table.milestone] })]);
