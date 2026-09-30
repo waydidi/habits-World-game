@@ -15,6 +15,13 @@
       "when": 1790757190477,
       "tag": "0001_gray_metal_master",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1790762846330,
+      "tag": "0002_stale_dakota_north",
+      "breakpoints": true
     }
   ]
 }

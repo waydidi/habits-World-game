@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Rich World — Your Habit Game",
-  description: "Read 10 pages, enjoy a good breakfast, and build your rich world one habit at a time.",
+  description: "Defeat habit monsters, grow your Novice from level 1 to 99, and work toward your real-world goals.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

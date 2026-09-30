@@ -1,0 +1,4 @@
+export const INSERT_QUEST = 'INSERT INTO quest_completions (user_id,day,quest_id,xp,completed_at) VALUES (?,?,?,?,?) ON CONFLICT(user_id,day,quest_id) DO NOTHING';
+export const INSERT_CLEAN_QUEST = "INSERT INTO quest_completions (user_id,day,quest_id,xp,completed_at) SELECT ?,?,'cannabis',?,? WHERE NOT EXISTS (SELECT 1 FROM cannabis_logs WHERE user_id=? AND day=? AND grams>0) ON CONFLICT(user_id,day,quest_id) DO NOTHING";
+export const INSERT_LEVEL2_REWARD = "INSERT INTO milestone_rewards (user_id,milestone,claimed_at) SELECT ?,'level_2',? WHERE (SELECT COALESCE(SUM(xp),0) FROM quest_completions WHERE user_id=?)>=9 ON CONFLICT(user_id,milestone) DO NOTHING";
+export const IMPORT_LEGACY_READING = "INSERT INTO quest_completions (user_id,day,quest_id,xp,completed_at) SELECT user_id,day,'reading',2,read_at FROM habit_days WHERE user_id=? ON CONFLICT(user_id,day,quest_id) DO NOTHING";
